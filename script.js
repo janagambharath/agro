@@ -88,9 +88,9 @@ function smoothScroll(e, id) {
 }
 window.smoothScroll = smoothScroll;
 
-/* Init on load */
+/* Default language: Telugu */
 document.addEventListener('DOMContentLoaded', () => {
-  setLang('en');
+  setLang('te');
 });
 
 /* ============================================================
@@ -164,20 +164,13 @@ const PRODUCTS = [
     thumbRail.appendChild(thumb);
   });
 
-  /* ── Scroll ONLY the thumb rail, never the page ──
-     Uses scrollLeft (no behavior:'smooth') so the browser never
-     treats it as a page-level scroll event.                      */
   function scrollThumbIntoView(idx) {
     const thumbs = thumbRail.querySelectorAll('.prod-thumb');
     const thumb  = thumbs[idx];
     if (!thumb) return;
-
-    /* Calculate target scrollLeft so the active thumb is centred */
     const targetLeft = thumb.offsetLeft
                      - thumbRail.clientWidth / 2
                      + thumb.offsetWidth  / 2;
-
-    /* Clamp to valid range */
     const maxScroll = thumbRail.scrollWidth - thumbRail.clientWidth;
     thumbRail.scrollLeft = Math.max(0, Math.min(targetLeft, maxScroll));
   }
@@ -195,10 +188,8 @@ const PRODUCTS = [
     thumbs[current].classList.add('active');
     currEl.textContent = String(current + 1).padStart(2, '0');
 
-    /* Scroll only the thumb rail — page position is never touched */
     scrollThumbIntoView(current);
 
-    /* Reset progress bar */
     progress.style.transition = 'none';
     progress.style.width = '0%';
     requestAnimationFrame(() => {
@@ -221,7 +212,6 @@ const PRODUCTS = [
     progress.style.width = '0%';
   }
 
-  /* Arrow buttons — prevent default to block any native scroll */
   prevBtn.addEventListener('click', (e) => {
     e.preventDefault();
     stopAuto();
@@ -235,14 +225,12 @@ const PRODUCTS = [
     startAuto();
   });
 
-  /* Pause on hover */
   const showcase = document.querySelector('.prod-showcase');
   if (showcase) {
     showcase.addEventListener('mouseenter', stopAuto);
     showcase.addEventListener('mouseleave', startAuto);
   }
 
-  /* Touch swipe — passive listeners so page scroll isn't blocked */
   let touchStartX = 0;
   stage.addEventListener('touchstart', e => {
     touchStartX = e.touches[0].clientX;
@@ -257,19 +245,17 @@ const PRODUCTS = [
     }
   }, { passive: true });
 
-  /* Keyboard arrows — only when the showcase is focused/hovered */
   let showcaseHovered = false;
   if (showcase) {
     showcase.addEventListener('mouseenter', () => { showcaseHovered = true;  });
     showcase.addEventListener('mouseleave', () => { showcaseHovered = false; });
   }
   document.addEventListener('keydown', e => {
-    if (!showcaseHovered) return;           // ← only act when hovering carousel
+    if (!showcaseHovered) return;
     if (e.key === 'ArrowLeft')  { e.preventDefault(); stopAuto(); goTo(current - 1); startAuto(); }
     if (e.key === 'ArrowRight') { e.preventDefault(); stopAuto(); goTo(current + 1); startAuto(); }
   });
 
-  /* Init */
   goTo(0);
   startAuto();
 })();
