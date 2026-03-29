@@ -778,14 +778,13 @@ footer {
 
 /* ============================================================
    LANGUAGE VISIBILITY
-   The rule: [data-lang] used for block elements (p, h2, h3, div)
-             [data-li]   used for inline elements (span)
+   .t-en = English content   .t-te = Telugu content
+   Both default hidden; JS adds body class to show the right one
    ============================================================ */
-[data-lang]        { display: none; }
-[data-lang].active { display: block; }
+.t-en, .t-te { display: none; }
 
-[data-li]          { display: none; }
-[data-li].active   { display: inline; }
+body.lang-en .t-en { display: revert; }
+body.lang-te .t-te { display: revert; }
 
 /* ============================================================
    RESPONSIVE
