@@ -386,17 +386,6 @@ section { padding: 96px 5%; }
 .d5 { transition-delay: .5s; }
 
 /* ============================================================
-   BANNER STRIP
-   ============================================================ */
-.banner-strip {
-  width: 100%; padding: 0;
-  border-top: 4px solid var(--amber);
-  border-bottom: 4px solid var(--forest);
-  line-height: 0;
-}
-.banner-strip img { width: 100%; object-fit: cover; max-height: 160px; }
-
-/* ============================================================
    ABOUT
    ============================================================ */
 .about-sec { background: white; }
@@ -454,7 +443,7 @@ section { padding: 96px 5%; }
 .pill img { width: 14px; height: 14px; object-fit: contain; }
 
 /* ============================================================
-   PRODUCTS — IMAGE SHOWCASE SLIDESHOW
+   PRODUCTS — IMAGE-ONLY SHOWCASE
    ============================================================ */
 .products-sec {
   background: linear-gradient(180deg, var(--cream) 0%, var(--mist) 100%);
@@ -464,10 +453,10 @@ section { padding: 96px 5%; }
 /* Stage container */
 .prod-showcase {
   position: relative;
-  background: var(--forest);
+  background: #f8f6f0;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 24px 80px rgba(13,59,31,.22);
+  border: 1px solid rgba(13,59,31,.08);
 }
 
 /* Slides wrapper */
@@ -475,16 +464,18 @@ section { padding: 96px 5%; }
   position: relative;
   height: 520px;
   overflow: hidden;
+  background: #f8f6f0;
 }
 
 /* Individual slide */
 .prod-slide {
   position: absolute; inset: 0;
-  display: flex; align-items: stretch;
+  display: flex; align-items: center; justify-content: center;
   opacity: 0;
   transform: scale(1.02) translateX(22px);
   transition: opacity .65s cubic-bezier(.4,0,.2,1), transform .65s cubic-bezier(.4,0,.2,1);
   pointer-events: none;
+  background: #f8f6f0;
 }
 .prod-slide.active {
   opacity: 1;
@@ -492,90 +483,34 @@ section { padding: 96px 5%; }
   pointer-events: auto;
 }
 
-/* Image panel */
+/* Image panel — clean, no overlay */
 .prod-slide-img {
   position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
 }
 .prod-slide-img img {
-  width: 100%; height: 100%; object-fit: contain;
+  width: 100%; height: 100%;
+  object-fit: contain;
   object-position: center;
-  background: #f8f6f0;
   transition: transform 8s ease;
+  padding: 20px;
 }
 .prod-slide.active .prod-slide-img img {
-  transform: scale(1.04);
-}
-
-/* Veil — gradient from left */
-.prod-slide-veil {
-  position: absolute; inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(13,59,31,.92) 0%,
-    rgba(13,59,31,.72) 38%,
-    rgba(13,59,31,.18) 65%,
-    transparent 100%
-  );
-}
-
-/* Info panel */
-.prod-slide-info {
-  position: relative; z-index: 2;
-  width: 46%; max-width: 420px;
-  padding: 52px 48px;
-  display: flex; flex-direction: column; justify-content: center;
-}
-
-.prod-tag {
-  display: inline-block;
-  padding: 4px 14px; border-radius: 100px;
-  font-size: .65rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-  margin-bottom: 16px; width: fit-content;
-}
-
-.prod-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.9rem, 3.5vw, 2.9rem);
-  font-weight: 700; color: white; line-height: 1.1;
-  margin-bottom: 8px;
-  display: none;
-}
-.prod-name.active { display: block; }
-
-.prod-type {
-  font-size: .82rem; font-weight: 500;
-  color: rgba(255,255,255,.7); margin-bottom: 10px;
-  letter-spacing: .3px;
-  display: none;
-}
-.prod-type.active { display: block; }
-
-.prod-detail {
-  font-size: .78rem; color: rgba(255,255,255,.5);
-  font-weight: 300; line-height: 1.6; margin-bottom: 20px;
-}
-
-.prod-brand {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: .68rem; font-weight: 600; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--amber);
-}
-.prod-brand::before {
-  content: ''; display: inline-block; width: 20px; height: 1px; background: var(--amber);
+  transform: scale(1.03);
 }
 
 /* Arrows */
 .prod-arrow {
   position: absolute; top: 50%; transform: translateY(-50%);
   z-index: 10; width: 44px; height: 44px; border-radius: 50%;
-  background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22);
+  background: rgba(13,59,31,.75); border: 1px solid rgba(255,255,255,.2);
   color: white; display: flex; align-items: center; justify-content: center;
   cursor: pointer; backdrop-filter: blur(8px);
-  transition: background .25s, transform .25s, border-color .25s;
+  transition: background .25s, transform .25s;
 }
 .prod-arrow svg { width: 18px; height: 18px; }
 .prod-arrow:hover {
-  background: var(--amber); border-color: var(--amber);
+  background: var(--amber);
   transform: translateY(-50%) scale(1.08);
 }
 .prod-prev { left: 18px; }
@@ -584,7 +519,7 @@ section { padding: 96px 5%; }
 /* Progress bar */
 .prod-progress {
   position: absolute; bottom: 0; left: 0; right: 0;
-  height: 3px; background: rgba(255,255,255,.1); z-index: 10;
+  height: 3px; background: rgba(13,59,31,.1); z-index: 10;
 }
 .prod-progress-fill {
   height: 100%; width: 0%; background: var(--amber);
@@ -613,7 +548,7 @@ section { padding: 96px 5%; }
   transition: border-color .25s, transform .25s, opacity .25s;
   opacity: .55;
 }
-.prod-thumb img { width: 100%; height: 100%; object-fit: contain; }
+.prod-thumb img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
 .prod-thumb.active {
   border-color: var(--amber); opacity: 1;
   transform: translateY(-3px);
@@ -680,50 +615,6 @@ section { padding: 96px 5%; }
   font-size: 1.25rem; font-weight: 700; color: var(--amber); margin-bottom: 10px;
 }
 .why-card p { font-size: .84rem; color: rgba(255,255,255,.58); line-height: 1.72; font-weight: 300; }
-
-/* ============================================================
-   OFFERS
-   ============================================================ */
-.offers-sec { background: white; }
-.offers-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
-  margin-top: 48px;
-}
-.offer-card {
-  border-radius: var(--r); overflow: hidden;
-  box-shadow: 0 4px 22px rgba(13,59,31,.1);
-  transition: transform .35s, box-shadow .35s; cursor: pointer;
-}
-.offer-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(13,59,31,.18); }
-
-.offer-img-wrap { position: relative; height: 210px; overflow: hidden; }
-.offer-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
-.offer-card:hover .offer-img-wrap img { transform: scale(1.08); }
-.offer-overlay {
-  position: absolute; inset: 0;
-  display: flex; align-items: flex-end; padding: 22px;
-}
-.offer-gradient { position: absolute; inset: 0; }
-.offer-text { position: relative; z-index: 1; }
-.offer-text h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.55rem; font-weight: 700; color: white; margin-bottom: 3px;
-}
-.offer-text p { font-size: .8rem; color: rgba(255,255,255,.8); font-weight: 300; }
-
-.offer-footer {
-  background: white; padding: 14px 22px;
-  display: flex; align-items: center; justify-content: space-between;
-  border-top: 1px solid var(--mist);
-}
-.offer-footer span { font-size: .78rem; color: var(--light); }
-.offer-link {
-  font-size: .75rem; color: var(--leaf); font-weight: 700;
-  letter-spacing: 1px; text-transform: uppercase;
-  display: flex; align-items: center; gap: 5px;
-  transition: gap .2s, color .2s;
-}
-.offer-link:hover { gap: 9px; color: var(--pine); }
 
 /* ============================================================
    TESTIMONIALS
@@ -887,9 +778,12 @@ footer {
 
 /* ============================================================
    LANGUAGE VISIBILITY
+   The rule: [data-lang] used for block elements (p, h2, h3, div)
+             [data-li]   used for inline elements (span)
    ============================================================ */
 [data-lang]        { display: none; }
 [data-lang].active { display: block; }
+
 [data-li]          { display: none; }
 [data-li].active   { display: inline; }
 
@@ -909,35 +803,19 @@ footer {
   .contact-grid  { grid-template-columns: 1fr; }
   .why-grid      { grid-template-columns: 1fr 1fr; }
   .testi-grid    { grid-template-columns: 1fr 1fr; }
-  .offers-grid   { grid-template-columns: 1fr; }
   .stats-inner   { grid-template-columns: repeat(2, 1fr); }
   .footer-grid   { grid-template-columns: 1fr; gap: 36px; }
 
   /* Product showcase mobile */
-  .prod-stage    { height: 420px; }
-  .prod-slide-veil {
-    background: linear-gradient(
-      180deg,
-      transparent 30%,
-      rgba(13,59,31,.92) 70%,
-      rgba(13,59,31,.96) 100%
-    );
-  }
-  .prod-slide-info {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    width: 100%; max-width: 100%;
-    padding: 28px 24px;
-    background: transparent;
-  }
-  .prod-name  { font-size: 1.6rem; }
-  .prod-thumb { flex: 0 0 58px; height: 58px; }
+  .prod-stage    { height: 380px; }
+  .prod-thumb    { flex: 0 0 58px; height: 58px; }
 }
 
 @media (max-width: 600px) {
   .why-grid      { grid-template-columns: 1fr; }
   .testi-grid    { grid-template-columns: 1fr; }
   .hero-ctas     { flex-direction: column; align-items: center; }
-  .prod-stage    { height: 360px; }
+  .prod-stage    { height: 300px; }
   .prod-arrow    { width: 36px; height: 36px; }
   .prod-thumb    { flex: 0 0 50px; height: 50px; }
 }
