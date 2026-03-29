@@ -71,35 +71,27 @@ const countObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
 
 /* ---- Language Toggle ---- */
-let currentLang = 'en';
-
 function setLang(lang) {
-  currentLang = lang;
-
-  /* Update lang buttons */
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-
-  /* data-lang elements (block-level: p, h2, h3, etc.) */
-  document.querySelectorAll('[data-lang]').forEach(el => {
-    el.classList.toggle('active', el.dataset.lang === lang);
-  });
-
-  /* data-li elements (inline: span) */
-  document.querySelectorAll('[data-li]').forEach(el => {
-    el.classList.toggle('active', el.dataset.li === lang);
-  });
-
+  document.body.classList.remove('lang-en', 'lang-te');
+  document.body.classList.add('lang-' + lang);
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-te').classList.toggle('active', lang === 'te');
   document.documentElement.lang = lang === 'te' ? 'te' : 'en';
 }
 window.setLang = setLang;
 
-/* Run once on load */
+/* ---- Smooth Scroll (manual — prevents instant jump) ---- */
+function smoothScroll(e, id) {
+  e.preventDefault();
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+window.smoothScroll = smoothScroll;
+
+/* Init on load */
 document.addEventListener('DOMContentLoaded', () => {
   setLang('en');
 });
-setLang('en');
 
 /* ============================================================
    PRODUCT SHOWCASE — 20 PRODUCTS (IMAGE ONLY)
