@@ -80,7 +80,7 @@ function setLang(lang) {
 }
 window.setLang = setLang;
 
-/* ---- Smooth Scroll (manual — prevents instant jump) ---- */
+/* ---- Smooth Scroll ---- */
 function smoothScroll(e, id) {
   e.preventDefault();
   const el = document.getElementById(id);
@@ -142,7 +142,7 @@ const PRODUCTS = [
 
   totalEl.textContent = String(PRODUCTS.length).padStart(2, '0');
 
-  /* Build slides — image only, no text overlay */
+  /* Build slides */
   PRODUCTS.forEach((p, i) => {
     const slide = document.createElement('div');
     slide.className = 'prod-slide' + (i === 0 ? ' active' : '');
@@ -164,6 +164,14 @@ const PRODUCTS = [
     thumbRail.appendChild(thumb);
   });
 
+  /* ── FIX: scroll only the thumb rail, never the page ── */
+  function scrollThumbIntoView(idx) {
+    const thumb = thumbRail.querySelectorAll('.prod-thumb')[idx];
+    if (!thumb) return;
+    const railScrollLeft = thumb.offsetLeft - thumbRail.clientWidth / 2 + thumb.offsetWidth / 2;
+    thumbRail.scrollTo({ left: railScrollLeft, behavior: 'smooth' });
+  }
+
   function goTo(idx) {
     const slides = stage.querySelectorAll('.prod-slide');
     const thumbs = thumbRail.querySelectorAll('.prod-thumb');
@@ -173,7 +181,10 @@ const PRODUCTS = [
     slides[current].classList.add('active');
     thumbs[current].classList.add('active');
     currEl.textContent = String(current + 1).padStart(2, '0');
-    thumbs[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+    /* Only scroll the thumb rail — never the page */
+    scrollThumbIntoView(current);
+
     progress.style.transition = 'none';
     progress.style.width = '0%';
     requestAnimationFrame(() => {
