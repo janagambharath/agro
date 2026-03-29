@@ -77,8 +77,8 @@ body { cursor: none; }
 
 /* ---------- Float WhatsApp ---------- */
 #float-wa {
-  position: fixed; bottom: 26px; right: 26px; z-index: 700;
-  width: 54px; height: 54px; border-radius: 50%;
+  position: fixed; bottom: 22px; right: 18px; z-index: 700;
+  width: 52px; height: 52px; border-radius: 50%;
   background: #25D366;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 4px 20px rgba(37,211,102,.5);
@@ -110,7 +110,7 @@ body { cursor: none; }
   display: flex; align-items: center; justify-content: space-between;
   height: 76px;
 }
-.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 .nav-logo img { width: 50px; height: 50px; object-fit: contain; transition: transform .3s; }
 .nav-logo:hover img { transform: rotate(-8deg) scale(1.05); }
 .nav-brand h1 {
@@ -141,7 +141,7 @@ body { cursor: none; }
 }
 .nav-links a:hover::after { transform: scaleX(1); }
 
-.nav-right { display: flex; align-items: center; gap: 14px; }
+.nav-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
 .lang-toggle {
   display: flex; align-items: center; gap: 2px;
   background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22);
@@ -516,11 +516,10 @@ section { padding: 96px 5%; }
   display: flex; gap: 8px;
   margin-top: 14px;
   overflow-x: auto;
-  overflow-y: hidden;          /* never let it create vertical scroll */
+  overflow-y: hidden;
   padding-bottom: 4px;
   scrollbar-width: thin;
   scrollbar-color: var(--mint) transparent;
-  /* Prevent this container from influencing page scroll */
   overscroll-behavior-x: contain;
 }
 .prod-thumb-rail::-webkit-scrollbar { height: 4px; }
@@ -551,7 +550,7 @@ section { padding: 96px 5%; }
 #prodTotal { font-size: .78rem; color: var(--light); font-weight: 500; }
 
 /* ============================================================
-   WHY CHOOSE US — REDESIGNED
+   WHY CHOOSE US
    ============================================================ */
 .why-sec {
   background: #071810;
@@ -694,9 +693,79 @@ section { padding: 96px 5%; }
 .testi-sec { background: var(--cream); }
 .testi-header { text-align: center; margin-bottom: 52px; }
 .testi-header .section-eyebrow { justify-content: center; }
-.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+
+/* Two-column layout: video | cards */
+.testi-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+/* ── Video column ── */
+.testi-video-col { position: sticky; top: 92px; }
+
+.testi-video-wrap {
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+}
+
+.testi-video-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--forest); color: white;
+  border-radius: 100px; padding: 6px 16px;
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  align-self: flex-start;
+}
+.testi-video-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #ff4444;
+  animation: livePulse 1.4s ease infinite;
+  flex-shrink: 0;
+}
+@keyframes livePulse {
+  0%,100% { opacity: 1; transform: scale(1);   }
+  50%      { opacity: .5; transform: scale(1.4); }
+}
+
+/* Portrait 9:16 for Shorts */
+.testi-video-frame {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 24px 64px rgba(13,59,31,.22),
+    0 0 0 3px var(--mint);
+  background: #000;
+}
+.testi-video-frame iframe {
+  width: 100%; height: 100%;
+  border: none; display: block;
+}
+
+.testi-yt-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #ff0000; color: white;
+  border-radius: 100px; padding: 9px 20px;
+  font-size: .78rem; font-weight: 700;
+  box-shadow: 0 4px 18px rgba(255,0,0,.35);
+  transition: transform .25s, box-shadow .25s, background .25s;
+}
+.testi-yt-link:hover {
+  background: #cc0000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(255,0,0,.45);
+}
+.testi-yt-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* ── Cards column ── */
+.testi-cards-col {
+  display: flex; flex-direction: column; gap: 18px;
+}
+
 .testi-card {
-  background: white; padding: 34px 28px;
+  background: white; padding: 28px 24px;
   border-radius: var(--r); border-top: 3px solid transparent;
   box-shadow: 0 2px 18px rgba(13,59,31,.06);
   position: relative;
@@ -706,28 +775,27 @@ section { padding: 96px 5%; }
 .testi-quote {
   font-family: 'Cormorant Garamond', serif;
   font-size: 4.8rem; color: var(--mist); line-height: .6;
-  position: absolute; top: 22px; left: 22px; font-weight: 700;
+  position: absolute; top: 18px; left: 18px; font-weight: 700;
   user-select: none; pointer-events: none;
 }
-.testi-stars { display: flex; gap: 3px; margin-bottom: 14px; }
-.testi-stars img { width: 14px; height: 14px; }
+.testi-stars { display: flex; gap: 3px; margin-bottom: 10px; }
 .testi-text {
-  font-size: .89rem; color: var(--mid); line-height: 1.82;
-  margin-bottom: 22px; font-weight: 300;
-  position: relative; z-index: 1; padding-top: 6px;
+  font-size: .87rem; color: var(--mid); line-height: 1.78;
+  margin-bottom: 16px; font-weight: 300;
+  position: relative; z-index: 1; padding-top: 4px;
 }
 .testi-author {
-  display: flex; align-items: center; gap: 13px;
-  border-top: 1px solid var(--mist); padding-top: 18px;
+  display: flex; align-items: center; gap: 12px;
+  border-top: 1px solid var(--mist); padding-top: 14px;
 }
 .testi-avatar {
-  width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+  width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
   background: linear-gradient(135deg, var(--pine), var(--sage));
   color: white; display: flex; align-items: center; justify-content: center;
-  font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700;
+  font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 700;
 }
-.testi-author h4 { font-size: .88rem; font-weight: 700; color: var(--forest); }
-.testi-author p  { font-size: .73rem; color: var(--light); font-weight: 300; }
+.testi-author h4 { font-size: .85rem; font-weight: 700; color: var(--forest); }
+.testi-author p  { font-size: .71rem; color: var(--light); font-weight: 300; }
 
 /* ============================================================
    CONTACT
@@ -854,32 +922,239 @@ body.lang-en .t-en { display: revert; }
 body.lang-te .t-te { display: revert; }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE — TABLET (≤1024px)
    ============================================================ */
 @media (max-width: 1024px) {
   .about-grid   { gap: 44px; }
   .contact-grid { gap: 44px; }
 }
 
+/* ============================================================
+   RESPONSIVE — TABLET PORTRAIT (≤900px)
+   ============================================================ */
 @media (max-width: 900px) {
   section { padding: 70px 5%; }
+
+  /* Nav */
   .nav-links { display: none; }
-  .about-grid    { grid-template-columns: 1fr; gap: 0; }
-  .about-img-badge { bottom: 16px; right: 16px; }
-  .contact-grid  { grid-template-columns: 1fr; }
-  .why-grid      { grid-template-columns: 1fr 1fr; }
-  .testi-grid    { grid-template-columns: 1fr 1fr; }
-  .stats-inner   { grid-template-columns: repeat(2, 1fr); }
-  .footer-grid   { grid-template-columns: 1fr; gap: 36px; }
-  .prod-stage    { height: 380px; }
-  .prod-thumb    { flex: 0 0 58px; height: 58px; }
+  .nav-brand h1 { font-size: .88rem; }
+  .nav-brand p  { display: none; }
+
+  /* About */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  .about-img-main { height: 340px; }
+  .about-img-badge {
+    bottom: 14px;
+    right: 14px;
+  }
+
+  /* Stats */
+  .stats-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stat-item {
+    padding: 36px 20px;
+    border-right: 1px solid rgba(255,255,255,.07);
+    border-bottom: 1px solid rgba(255,255,255,.07);
+  }
+  .stat-item:nth-child(2n) { border-right: none; }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4)  { border-bottom: none; }
+  .stat-num { font-size: 2.8rem; }
+
+  /* Why */
+  .why-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Testimonials */
+  .testi-layout {
+    grid-template-columns: 260px 1fr;
+    gap: 26px;
+  }
+  .testi-video-col { position: static; }
+
+  /* Contact */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* Products */
+  .prod-stage  { height: 380px; }
+  .prod-thumb  { flex: 0 0 58px; height: 58px; }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  /* Map */
+  .map-wrap { height: 340px; }
 }
 
+/* ============================================================
+   RESPONSIVE — MOBILE (≤600px)
+   ============================================================ */
 @media (max-width: 600px) {
-  .why-grid      { grid-template-columns: 1fr; }
-  .testi-grid    { grid-template-columns: 1fr; }
-  .hero-ctas     { flex-direction: column; align-items: center; }
-  .prod-stage    { height: 300px; }
-  .prod-arrow    { width: 36px; height: 36px; }
-  .prod-thumb    { flex: 0 0 50px; height: 50px; }
+
+  /* Global */
+  section { padding: 56px 4%; }
+
+  /* Custom cursor — hide on touch */
+  #cursor, #cursor-ring { display: none; }
+  body { cursor: auto; }
+
+  /* Float WhatsApp */
+  #float-wa { bottom: 16px; right: 14px; width: 48px; height: 48px; }
+  #float-wa img { width: 22px; height: 22px; }
+
+  /* ── NAV ── */
+  #navbar { padding: 0 4%; }
+  .nav-inner { height: 62px; }
+  .nav-logo img { width: 38px; height: 38px; }
+  .nav-brand h1 { font-size: .78rem; }
+  .nav-right { gap: 8px; }
+  .lang-btn { padding: 4px 10px; font-size: .66rem; }
+  /* Hide text on call button, show icon only */
+  .btn-nav-call {
+    padding: 8px 12px;
+    font-size: 0;         /* hide text */
+    gap: 0;
+  }
+  .btn-nav-call svg {
+    width: 16px; height: 16px;
+    font-size: initial;
+  }
+
+  /* ── HERO ── */
+  .hero { min-height: 100svh; }
+  .hero-content { padding: 0 18px; }
+  .hero-logo { width: 78px; height: 78px; margin-bottom: 18px; }
+  .hero-badge {
+    font-size: .6rem; letter-spacing: 1.2px;
+    padding: 6px 14px; margin-bottom: 16px;
+  }
+  .hero-title { font-size: clamp(2rem, 9vw, 2.8rem); margin-bottom: 14px; }
+  .hero-sub { font-size: .88rem; margin-bottom: 28px; }
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .btn-gold, .btn-wa, .btn-outline {
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: .84rem;
+  }
+
+  /* ── STATS ── */
+  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .stat-item { padding: 28px 12px; }
+  .stat-num { font-size: 2.4rem; }
+  .stat-label { font-size: .64rem; letter-spacing: .8px; }
+
+  /* ── ABOUT ── */
+  .about-sec { padding: 56px 4%; }
+  .about-grid { gap: 40px; }
+  .about-img-main { height: 240px; }
+  .about-img-badge {
+    position: static;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 14px;
+    border-radius: var(--r);
+  }
+  .about-img-badge strong { font-size: 2rem; }
+  .about-text p { font-size: .9rem; }
+  .about-pills { gap: 8px; }
+  .pill { font-size: .73rem; padding: 6px 13px; }
+
+  /* ── PRODUCTS ── */
+  .products-sec { padding: 56px 4%; }
+  .prod-stage   { height: 260px; }
+  .prod-arrow   { width: 34px; height: 34px; }
+  .prod-arrow svg { width: 15px; height: 15px; }
+  .prod-prev { left: 10px; }
+  .prod-next { right: 10px; }
+  .prod-thumb   { flex: 0 0 48px; height: 48px; }
+  .prod-counter { justify-content: center; }
+  #prodCurrent  { font-size: 1.4rem; }
+
+  /* ── WHY ── */
+  .why-sec  { padding: 60px 4%; }
+  .why-grid { grid-template-columns: 1fr; gap: 14px; }
+  .why-card { padding: 28px 22px 24px; }
+  .why-icon { width: 46px; height: 46px; margin-bottom: 16px; }
+  .why-card h3 { font-size: 1.15rem; }
+  .why-card p  { font-size: .82rem; }
+
+  /* ── TESTIMONIALS ── */
+  .testi-sec  { padding: 56px 4%; }
+  .testi-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .testi-video-col { position: static; }
+  .testi-video-frame { max-width: 280px; margin: 0 auto; }
+  .testi-cards-col { gap: 14px; }
+  .testi-header { margin-bottom: 36px; }
+
+  /* ── CONTACT ── */
+  .contact-sec    { padding: 56px 4%; }
+  .contact-header { margin-bottom: 40px; }
+  .contact-grid   { gap: 32px; }
+  .contact-info h3 { font-size: 1.25rem; margin-bottom: 22px; }
+  .contact-item { gap: 12px; margin-bottom: 20px; }
+  .contact-item-icon { width: 36px; height: 36px; }
+  .contact-item-icon img { width: 15px; height: 15px; }
+  .timing-box { font-size: .8rem; padding: 12px 14px; }
+  .btn-call-full,
+  .btn-wa-full  { padding: 13px 18px; font-size: .84rem; }
+  .map-wrap { height: 260px; }
+  .map-caption { font-size: .7rem; }
+
+  /* ── FOOTER ── */
+  footer { padding: 52px 4% 24px; }
+  .footer-grid { gap: 28px; margin-bottom: 36px; }
+  .footer-brand { flex-direction: column; gap: 12px; align-items: flex-start; }
+  .footer-logo  { width: 50px; height: 50px; }
+  .footer-brand-text h2 { font-size: 1rem; }
+  .footer-brand-text p  { font-size: .76rem; }
+  .footer-col h3 { font-size: .62rem; margin-bottom: 14px; }
+  .footer-col ul li a { font-size: .8rem; }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+  .footer-bottom p { font-size: .68rem; }
+
+  /* ── SECTION TITLES ── */
+  .section-title { font-size: clamp(1.7rem, 7vw, 2.4rem); }
+  .section-sub   { font-size: .88rem; }
+}
+
+/* ============================================================
+   RESPONSIVE — VERY SMALL (≤380px)
+   ============================================================ */
+@media (max-width: 380px) {
+  .hero-title { font-size: 1.9rem; }
+  .hero-badge { font-size: .56rem; padding: 5px 12px; }
+  .stat-num   { font-size: 2rem; }
+  .prod-stage { height: 220px; }
+  .nav-brand  { display: none; }   /* hide brand text on very small screens */
 }
