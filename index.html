@@ -21,7 +21,7 @@
 <div id="cursor-ring"></div>
 
 <!-- ── Float WhatsApp ── -->
-<a id="float-wa" href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<a id="float-wa" href="https://wa.me/919951205010" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
 </a>
 
@@ -39,18 +39,18 @@
     </a>
 
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#why">Why Us</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about" onclick="smoothScroll(event,'about')">About</a></li>
+      <li><a href="#products" onclick="smoothScroll(event,'products')">Products</a></li>
+      <li><a href="#why" onclick="smoothScroll(event,'why')">Why Us</a></li>
+      <li><a href="#contact" onclick="smoothScroll(event,'contact')">Contact</a></li>
     </ul>
 
     <div class="nav-right">
       <div class="lang-toggle">
-        <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" data-lang="te" onclick="setLang('te')">తె</button>
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn"        id="btn-te" onclick="setLang('te')">తె</button>
       </div>
-      <a href="tel:+91XXXXXXXXXX" class="btn-nav-call">
+      <a href="tel:+919951205010" class="btn-nav-call">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.7 13.1a19.79 19.79 0 01-3.07-8.67A2 2 0 012.62 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.72 6.72l.97-.96a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
         Call Now
       </a>
@@ -71,34 +71,34 @@
 
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
-      <span data-li="en">Trusted Since 2005 · Hyderabad</span>
-      <span data-li="te">2005 నుండి విశ్వసనీయం · హైదరాబాద్</span>
+      <span class="t-en">Trusted Since 2005 · Hyderabad</span>
+      <span class="t-te">2005 నుండి విశ్వసనీయం · హైదరాబాద్</span>
     </div>
 
     <h1 class="hero-title">
-      <span data-li="en">Your Farm's Best <em>Partner</em></span>
-      <span data-li="te">మీ వ్యవసాయానికి <em>నమ్మకమైన భాగస్వామి</em></span>
+      <span class="t-en">Your Farm's Best <em>Partner</em></span>
+      <span class="t-te">మీ వ్యవసాయానికి <em>నమ్మకమైన భాగస్వామి</em></span>
     </h1>
 
     <p class="hero-sub">
-      <span data-li="en">Premium fertilizers, fungicides, insecticides and bio-stimulants — everything your crop needs, under one roof.</span>
-      <span data-li="te">ప్రీమియం ఎరువులు, శిలీంధ్రనాశకాలు, కీటకనాశకాలు మరియు బయో-స్టిమ్యులెంట్లు — మీ పంటకు అవసరమైన ప్రతిదీ ఒక్కచోట.</span>
+      <span class="t-en">Premium fertilizers, fungicides, insecticides and bio-stimulants — everything your crop needs, under one roof.</span>
+      <span class="t-te">ప్రీమియం ఎరువులు, శిలీంధ్రనాశకాలు, కీటకనాశకాలు మరియు బయో-స్టిమ్యులెంట్లు — మీ పంటకు అవసరమైన ప్రతిదీ ఒక్కచోట.</span>
     </p>
 
     <div class="hero-ctas">
-      <a href="#products" class="btn-gold">
+      <a href="#products" onclick="smoothScroll(event,'products')" class="btn-gold">
         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        <span data-li="en">View Products</span>
-        <span data-li="te">ఉత్పత్తులు చూడండి</span>
+        <span class="t-en">View Products</span>
+        <span class="t-te">ఉత్పత్తులు చూడండి</span>
       </a>
-      <a href="https://wa.me/91XXXXXXXXXX" class="btn-wa" target="_blank">
+      <a href="https://wa.me/919951205010" class="btn-wa" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" style="width:17px;height:17px;filter:brightness(10)" />
-        <span data-li="en">WhatsApp Us</span>
-        <span data-li="te">వాట్సాప్ చేయండి</span>
+        <span class="t-en">WhatsApp Us</span>
+        <span class="t-te">వాట్సాప్ చేయండి</span>
       </a>
-      <a href="#contact" class="btn-outline">
-        <span data-li="en">Get Directions</span>
-        <span data-li="te">దిశలు పొందండి</span>
+      <a href="#contact" onclick="smoothScroll(event,'contact')" class="btn-outline">
+        <span class="t-en">Get Directions</span>
+        <span class="t-te">దిశలు పొందండి</span>
       </a>
     </div>
   </div>
@@ -118,29 +118,29 @@
     <div class="stat-item">
       <div class="stat-num" data-count="20">0+</div>
       <div class="stat-label">
-        <span data-li="en">Products Stocked</span>
-        <span data-li="te">నిల్వ ఉత్పత్తులు</span>
+        <span class="t-en">Products Stocked</span>
+        <span class="t-te">నిల్వ ఉత్పత్తులు</span>
       </div>
     </div>
     <div class="stat-item">
       <div class="stat-num" data-count="500">0+</div>
       <div class="stat-label">
-        <span data-li="en">Happy Farmers</span>
-        <span data-li="te">సంతుష్ట రైతులు</span>
+        <span class="t-en">Happy Farmers</span>
+        <span class="t-te">సంతుష్ట రైతులు</span>
       </div>
     </div>
     <div class="stat-item">
       <div class="stat-num" data-count="20">0+</div>
       <div class="stat-label">
-        <span data-li="en">Years of Service</span>
-        <span data-li="te">సేవా సంవత్సరాలు</span>
+        <span class="t-en">Years of Service</span>
+        <span class="t-te">సేవా సంవత్సరాలు</span>
       </div>
     </div>
     <div class="stat-item">
       <div class="stat-num" data-count="10">0+</div>
       <div class="stat-label">
-        <span data-li="en">Trusted Brands</span>
-        <span data-li="te">విశ్వసనీయ బ్రాండ్లు</span>
+        <span class="t-en">Trusted Brands</span>
+        <span class="t-te">విశ్వసనీయ బ్రాండ్లు</span>
       </div>
     </div>
   </div>
@@ -164,23 +164,23 @@
       <div class="about-text reveal d2">
         <span class="section-eyebrow">
           <span class="eyebrow-line"></span>
-          <span data-li="en">About Us</span>
-          <span data-li="te">మా గురించి</span>
+          <span class="t-en">About Us</span>
+          <span class="t-te">మా గురించి</span>
         </span>
-        <h2 class="section-title" data-lang="en">Rooted in <em>Agriculture,</em> Committed to Farmers</h2>
-        <h2 class="section-title" data-lang="te">వ్యవసాయంలో <em>మూలాలు,</em> రైతులకు నిబద్ధత</h2>
+        <h2 class="section-title t-en">Rooted in <em>Agriculture,</em> Committed to Farmers</h2>
+        <h2 class="section-title t-te">వ్యవసాయంలో <em>మూలాలు,</em> రైతులకు నిబద్ధత</h2>
 
-        <p data-lang="en">Agros Rythu Seva Kendram has been a cornerstone of agricultural support in Hyderabad for over two decades. We source only the finest, verified agrochemicals from India's most trusted manufacturers.</p>
-        <p data-lang="te">అగ్రోస్ రైతు సేవా కేంద్రం రెండు దశాబ్దాలకు పైగా హైదరాబాద్‌లో వ్యవసాయ మద్దతులో ఒక మూలస్తంభంగా ఉంది. మేము భారతదేశంలోని అత్యంత విశ్వసనీయ తయారీదారుల నుండి మాత్రమే ఉత్తమ, ధృవీకరించబడిన వ్యవసాయ రసాయనాలను సేకరిస్తాము.</p>
+        <p class="t-en">Agros Rythu Seva Kendram has been a cornerstone of agricultural support in Hyderabad for over two decades. We source only the finest, verified agrochemicals from India's most trusted manufacturers.</p>
+        <p class="t-te">అగ్రోస్ రైతు సేవా కేంద్రం రెండు దశాబ్దాలకు పైగా హైదరాబాద్‌లో వ్యవసాయ మద్దతులో ఒక మూలస్తంభంగా ఉంది. మేము భారతదేశంలోని అత్యంత విశ్వసనీయ తయారీదారుల నుండి మాత్రమే ఉత్తమ, ధృవీకరించబడిన వ్యవసాయ రసాయనాలను సేకరిస్తాము.</p>
 
-        <p data-lang="en">Our expert staff provides personalised guidance on crop nutrition, pest management and soil health — helping every farmer maximise their yield and profitability.</p>
-        <p data-lang="te">మా నిపుణుల సిబ్బంది పంట పోషణ, తెగులు నిర్వహణ మరియు మట్టి ఆరోగ్యంపై వ్యక్తిగతీకరించిన మార్గదర్శకత్వం అందిస్తుంది.</p>
+        <p class="t-en">Our expert staff provides personalised guidance on crop nutrition, pest management and soil health — helping every farmer maximise their yield and profitability.</p>
+        <p class="t-te">మా నిపుణుల సిబ్బంది పంట పోషణ, తెగులు నిర్వహణ మరియు మట్టి ఆరోగ్యంపై వ్యక్తిగతీకరించిన మార్గదర్శకత్వం అందిస్తుంది.</p>
 
         <div class="about-pills">
-          <span class="pill">✓ <span data-li="en">Genuine Products</span><span data-li="te">అసలు ఉత్పత్తులు</span></span>
-          <span class="pill">✓ <span data-li="en">Expert Advice</span><span data-li="te">నిపుణుల సలహా</span></span>
-          <span class="pill">✓ <span data-li="en">All Major Brands</span><span data-li="te">అన్ని ప్రధాన బ్రాండ్లు</span></span>
-          <span class="pill">✓ <span data-li="en">Competitive Pricing</span><span data-li="te">పోటీ ధరలు</span></span>
+          <span class="pill">✓ <span class="t-en">Genuine Products</span><span class="t-te">అసలు ఉత్పత్తులు</span></span>
+          <span class="pill">✓ <span class="t-en">Expert Advice</span><span class="t-te">నిపుణుల సలహా</span></span>
+          <span class="pill">✓ <span class="t-en">All Major Brands</span><span class="t-te">అన్ని ప్రధాన బ్రాండ్లు</span></span>
+          <span class="pill">✓ <span class="t-en">Competitive Pricing</span><span class="t-te">పోటీ ధరలు</span></span>
         </div>
       </div>
 
@@ -197,13 +197,13 @@
     <div class="products-header reveal">
       <span class="section-eyebrow">
         <span class="eyebrow-line"></span>
-        <span data-li="en">Our Product Range</span>
-        <span data-li="te">మా ఉత్పత్తుల శ్రేణి</span>
+        <span class="t-en">Our Product Range</span>
+        <span class="t-te">మా ఉత్పత్తుల శ్రేణి</span>
       </span>
-      <h2 class="section-title" data-lang="en">Trusted Brands We <em>Stock & Supply</em></h2>
-      <h2 class="section-title" data-lang="te">మేము నిల్వ చేసే <em>విశ్వసనీయ బ్రాండ్లు</em></h2>
-      <p class="section-sub" data-lang="en">Premium fertilizers, systemic fungicides, insecticides and bio-stimulants — everything your crop needs, sourced from India's best agrochemical brands.</p>
-      <p class="section-sub" data-lang="te">ప్రీమియం ఎరువులు, సిస్టమిక్ శిలీంధ్రనాశకాలు, కీటకనాశకాలు మరియు బయో-స్టిమ్యులెంట్లు — మీ పంటకు అవసరమైన ప్రతిదీ.</p>
+      <h2 class="section-title t-en">Trusted Brands We <em>Stock &amp; Supply</em></h2>
+      <h2 class="section-title t-te">మేము నిల్వ చేసే <em>విశ్వసనీయ బ్రాండ్లు</em></h2>
+      <p class="section-sub t-en">Premium fertilizers, systemic fungicides, insecticides and bio-stimulants — everything your crop needs, sourced from India's best agrochemical brands.</p>
+      <p class="section-sub t-te">ప్రీమియం ఎరువులు, సిస్టమిక్ శిలీంధ్రనాశకాలు, కీటకనాశకాలు మరియు బయో-స్టిమ్యులెంట్లు — మీ పంటకు అవసరమైన ప్రతిదీ.</p>
     </div>
 
     <!-- Main Stage -->
@@ -240,56 +240,56 @@
   <div class="container">
     <span class="section-eyebrow reveal">
       <span class="eyebrow-line"></span>
-      <span data-li="en">Why Choose Us</span>
-      <span data-li="te">మాను ఎందుకు ఎంచుకోవాలి</span>
+      <span class="t-en">Why Choose Us</span>
+      <span class="t-te">మాను ఎందుకు ఎంచుకోవాలి</span>
     </span>
-    <h2 class="section-title reveal d1" data-lang="en">The <em>Agros Advantage</em></h2>
-    <h2 class="section-title reveal d1" data-lang="te"><em>అగ్రోస్</em> ప్రయోజనం</h2>
-    <p class="section-sub reveal d2" data-lang="en">We combine decades of field experience with access to India's leading agri-input brands.</p>
-    <p class="section-sub reveal d2" data-lang="te">మేము దశాబ్దాల క్షేత్ర అనుభవాన్ని భారతదేశంలోని ప్రముఖ అగ్రి-ఇన్‌పుట్ బ్రాండ్లతో కలిపి అందిస్తాము.</p>
+    <h2 class="section-title reveal d1 t-en">The <em>Agros Advantage</em></h2>
+    <h2 class="section-title reveal d1 t-te"><em>అగ్రోస్</em> ప్రయోజనం</h2>
+    <p class="section-sub reveal d2 t-en">We combine decades of field experience with access to India's leading agri-input brands.</p>
+    <p class="section-sub reveal d2 t-te">మేము దశాబ్దాల క్షేత్ర అనుభవాన్ని భారతదేశంలోని ప్రముఖ అగ్రి-ఇన్‌పుట్ బ్రాండ్లతో కలిపి అందిస్తాము.</p>
 
     <div class="why-grid">
       <div class="why-card reveal d1">
         <div class="why-icon"><img src="https://img.icons8.com/ios/50/ffffff/certificate.png" alt="" /></div>
-        <h3 data-lang="en">100% Genuine Products</h3>
-        <h3 data-lang="te">100% అసలు ఉత్పత్తులు</h3>
-        <p data-lang="en">Every product we sell is sourced directly from authorised distributors and carries full manufacturer warranty.</p>
-        <p data-lang="te">మేము విక్రయించే ప్రతి ఉత్పత్తి అధికృత పంపిణీదారుల నుండి నేరుగా సేకరించబడింది.</p>
+        <h3 class="t-en">100% Genuine Products</h3>
+        <h3 class="t-te">100% అసలు ఉత్పత్తులు</h3>
+        <p class="t-en">Every product we sell is sourced directly from authorised distributors and carries full manufacturer warranty.</p>
+        <p class="t-te">మేము విక్రయించే ప్రతి ఉత్పత్తి అధికృత పంపిణీదారుల నుండి నేరుగా సేకరించబడింది.</p>
       </div>
       <div class="why-card reveal d2">
         <div class="why-icon"><img src="https://img.icons8.com/ios/50/ffffff/microscope.png" alt="" /></div>
-        <h3 data-lang="en">Expert Crop Advisory</h3>
-        <h3 data-lang="te">నిపుణుల పంట సలహా</h3>
-        <p data-lang="en">Our agronomists offer free, personalised recommendations for fertilization schedules, pest control and soil improvement.</p>
-        <p data-lang="te">మా వ్యవసాయ నిపుణులు ఉచిత, వ్యక్తిగతీకరించిన సిఫార్సులు అందిస్తారు.</p>
+        <h3 class="t-en">Expert Crop Advisory</h3>
+        <h3 class="t-te">నిపుణుల పంట సలహా</h3>
+        <p class="t-en">Our agronomists offer free, personalised recommendations for fertilization schedules, pest control and soil improvement.</p>
+        <p class="t-te">మా వ్యవసాయ నిపుణులు ఉచిత, వ్యక్తిగతీకరించిన సిఫార్సులు అందిస్తారు.</p>
       </div>
       <div class="why-card reveal d3">
         <div class="why-icon"><img src="https://img.icons8.com/ios/50/ffffff/price-tag.png" alt="" /></div>
-        <h3 data-lang="en">Best Market Prices</h3>
-        <h3 data-lang="te">అత్యుత్తమ మార్కెట్ ధరలు</h3>
-        <p data-lang="en">We offer competitive pricing with regular seasonal discounts and bulk purchase benefits for larger orders.</p>
-        <p data-lang="te">మేము పోటీ ధరలతో పాటు సీజనల్ డిస్కౌంట్లు మరియు బల్క్ కొనుగోలు ప్రయోజనాలు అందిస్తాము.</p>
+        <h3 class="t-en">Best Market Prices</h3>
+        <h3 class="t-te">అత్యుత్తమ మార్కెట్ ధరలు</h3>
+        <p class="t-en">We offer competitive pricing with regular seasonal discounts and bulk purchase benefits for larger orders.</p>
+        <p class="t-te">మేము పోటీ ధరలతో పాటు సీజనల్ డిస్కౌంట్లు మరియు బల్క్ కొనుగోలు ప్రయోజనాలు అందిస్తాము.</p>
       </div>
       <div class="why-card reveal d1">
         <div class="why-icon"><img src="https://img.icons8.com/ios/50/ffffff/delivery.png" alt="" /></div>
-        <h3 data-lang="en">Fast Local Delivery</h3>
-        <h3 data-lang="te">వేగవంతమైన స్థానిక డెలివరీ</h3>
-        <p data-lang="en">Same-day delivery within Hyderabad for bulk orders. We make sure your inputs reach your farm on time.</p>
-        <p data-lang="te">హైదరాబాద్‌లో బల్క్ ఆర్డర్లకు అదే రోజు డెలివరీ అందుబాటులో ఉంది.</p>
+        <h3 class="t-en">Fast Local Delivery</h3>
+        <h3 class="t-te">వేగవంతమైన స్థానిక డెలివరీ</h3>
+        <p class="t-en">Same-day delivery within Hyderabad for bulk orders. We make sure your inputs reach your farm on time.</p>
+        <p class="t-te">హైదరాబాద్‌లో బల్క్ ఆర్డర్లకు అదే రోజు డెలివరీ అందుబాటులో ఉంది.</p>
       </div>
       <div class="why-card reveal d2">
         <div class="why-icon"><img src="https://img.icons8.com/ios/50/ffffff/headset.png" alt="" /></div>
-        <h3 data-lang="en">After-Sales Support</h3>
-        <h3 data-lang="te">అమ్మకాల తర్వాత మద్దతు</h3>
-        <p data-lang="en">We stay with you beyond the sale — answering questions about dosage, mixing and crop response via WhatsApp.</p>
-        <p data-lang="te">మేము అమ్మకం తర్వాత కూడా మీతో ఉంటాము — వాట్సాప్ ద్వారా సందేహాలకు సమాధానం ఇస్తాము.</p>
+        <h3 class="t-en">After-Sales Support</h3>
+        <h3 class="t-te">అమ్మకాల తర్వాత మద్దతు</h3>
+        <p class="t-en">We stay with you beyond the sale — answering questions about dosage, mixing and crop response via WhatsApp.</p>
+        <p class="t-te">మేము అమ్మకం తర్వాత కూడా మీతో ఉంటాము — వాట్సాప్ ద్వారా సందేహాలకు సమాధానం ఇస్తాము.</p>
       </div>
       <div class="why-card reveal d3">
         <div class="why-icon"><img src="https://img.icons8.com/ios/50/ffffff/seedling.png" alt="" /></div>
-        <h3 data-lang="en">Full Range Under One Roof</h3>
-        <h3 data-lang="te">అన్నీ ఒక్కచోట</h3>
-        <p data-lang="en">Fertilizers, fungicides, insecticides, micronutrients and bio-stimulants — a complete agri-input solution.</p>
-        <p data-lang="te">ఎరువులు, శిలీంధ్రనాశకాలు, కీటకనాశకాలు — సంపూర్ణ వ్యవసాయ ఇన్‌పుట్ పరిష్కారం.</p>
+        <h3 class="t-en">Full Range Under One Roof</h3>
+        <h3 class="t-te">అన్నీ ఒక్కచోట</h3>
+        <p class="t-en">Fertilizers, fungicides, insecticides, micronutrients and bio-stimulants — a complete agri-input solution.</p>
+        <p class="t-te">ఎరువులు, శిలీంధ్రనాశకాలు, కీటకనాశకాలు — సంపూర్ణ వ్యవసాయ ఇన్‌పుట్ పరిష్కారం.</p>
       </div>
     </div>
   </div>
@@ -303,25 +303,25 @@
     <div class="testi-header">
       <span class="section-eyebrow reveal">
         <span class="eyebrow-line"></span>
-        <span data-li="en">What Farmers Say</span>
-        <span data-li="te">రైతులు చెప్పేది</span>
+        <span class="t-en">What Farmers Say</span>
+        <span class="t-te">రైతులు చెప్పేది</span>
       </span>
-      <h2 class="section-title reveal d1" data-lang="en">Trusted by <em>Hundreds of Farmers</em></h2>
-      <h2 class="section-title reveal d1" data-lang="te"><em>వందలాది రైతులు</em> విశ్వసించే కేంద్రం</h2>
+      <h2 class="section-title reveal d1 t-en">Trusted by <em>Hundreds of Farmers</em></h2>
+      <h2 class="section-title reveal d1 t-te"><em>వందలాది రైతులు</em> విశ్వసించే కేంద్రం</h2>
     </div>
 
     <div class="testi-grid">
       <div class="testi-card reveal d1">
         <div class="testi-quote">"</div>
         <div class="testi-stars">⭐⭐⭐⭐⭐</div>
-        <p class="testi-text" data-lang="en">Best agri shop in the area. The staff always guides me correctly on which product to use for my tomato crop. Never faced a fake product issue.</p>
-        <p class="testi-text" data-lang="te">ఈ ప్రాంతంలో అత్యుత్తమ వ్యవసాయ దుకాణం. నా టమాటా పంటకు ఏ ఉత్పత్తి వాడాలో సరైన మార్గదర్శకత్వం ఇస్తారు.</p>
+        <p class="testi-text t-en">Best agri shop in the area. The staff always guides me correctly on which product to use for my tomato crop. Never faced a fake product issue.</p>
+        <p class="testi-text t-te">ఈ ప్రాంతంలో అత్యుత్తమ వ్యవసాయ దుకాణం. నా టమాటా పంటకు ఏ ఉత్పత్తి వాడాలో సరైన మార్గదర్శకత్వం ఇస్తారు.</p>
         <div class="testi-author">
           <div class="testi-avatar">R</div>
           <div>
             <h4>Ramaiah G.</h4>
-            <p data-lang="en">Tomato Farmer, Rangareddy</p>
-            <p data-lang="te">టమాటా రైతు, రంగారెడ్డి</p>
+            <p class="t-en">Tomato Farmer, Rangareddy</p>
+            <p class="t-te">టమాటా రైతు, రంగారెడ్డి</p>
           </div>
         </div>
       </div>
@@ -329,14 +329,14 @@
       <div class="testi-card reveal d2">
         <div class="testi-quote">"</div>
         <div class="testi-stars">⭐⭐⭐⭐⭐</div>
-        <p class="testi-text" data-lang="en">I've been buying from Agros for 8 years. Their NanoDAP and VesoMax recommendations doubled my paddy yield last season. Highly recommend!</p>
-        <p class="testi-text" data-lang="te">8 సంవత్సరాలుగా అగ్రోస్ నుండి కొంటున్నాను. వారి నానోడ్యాప్ మరియు వీసోమాక్స్ సలహాతో నా వరి దిగుబడి రెట్టింపు అయింది.</p>
+        <p class="testi-text t-en">I've been buying from Agros for 8 years. Their NanoDAP and VesoMax recommendations doubled my paddy yield last season. Highly recommend!</p>
+        <p class="testi-text t-te">8 సంవత్సరాలుగా అగ్రోస్ నుండి కొంటున్నాను. వారి నానోడ్యాప్ మరియు వీసోమాక్స్ సలహాతో నా వరి దిగుబడి రెట్టింపు అయింది.</p>
         <div class="testi-author">
           <div class="testi-avatar">S</div>
           <div>
             <h4>Srinivas K.</h4>
-            <p data-lang="en">Paddy Farmer, Medak</p>
-            <p data-lang="te">వరి రైతు, మెదక్</p>
+            <p class="t-en">Paddy Farmer, Medak</p>
+            <p class="t-te">వరి రైతు, మెదక్</p>
           </div>
         </div>
       </div>
@@ -344,14 +344,14 @@
       <div class="testi-card reveal d3">
         <div class="testi-quote">"</div>
         <div class="testi-stars">⭐⭐⭐⭐⭐</div>
-        <p class="testi-text" data-lang="en">The prices are fair and the quality is always original. I trust Agros completely for all my farm requirements. The WhatsApp support is very helpful.</p>
-        <p class="testi-text" data-lang="te">ధరలు సరసమైనవి మరియు నాణ్యత ఎప్పుడూ అసలైనది. నా అన్ని వ్యవసాయ అవసరాలకు అగ్రోస్‌ను పూర్తిగా నమ్ముతాను.</p>
+        <p class="testi-text t-en">The prices are fair and the quality is always original. I trust Agros completely for all my farm requirements. The WhatsApp support is very helpful.</p>
+        <p class="testi-text t-te">ధరలు సరసమైనవి మరియు నాణ్యత ఎప్పుడూ అసలైనది. నా అన్ని వ్యవసాయ అవసరాలకు అగ్రోస్‌ను పూర్తిగా నమ్ముతాను.</p>
         <div class="testi-author">
           <div class="testi-avatar">L</div>
           <div>
             <h4>Laxmi Devi</h4>
-            <p data-lang="en">Chilli Farmer, Nalgonda</p>
-            <p data-lang="te">మిర్చి రైతు, నల్గొండ</p>
+            <p class="t-en">Chilli Farmer, Nalgonda</p>
+            <p class="t-te">మిర్చి రైతు, నల్గొండ</p>
           </div>
         </div>
       </div>
@@ -367,26 +367,26 @@
     <div class="contact-header">
       <span class="section-eyebrow reveal">
         <span class="eyebrow-line"></span>
-        <span data-li="en">Visit Us</span>
-        <span data-li="te">మాను సందర్శించండి</span>
+        <span class="t-en">Visit Us</span>
+        <span class="t-te">మాను సందర్శించండి</span>
       </span>
-      <h2 class="section-title reveal d1" data-lang="en">Come to Our <em>Store</em></h2>
-      <h2 class="section-title reveal d1" data-lang="te">మా <em>దుకాణానికి</em> రండి</h2>
+      <h2 class="section-title reveal d1 t-en">Come to Our <em>Store</em></h2>
+      <h2 class="section-title reveal d1 t-te">మా <em>దుకాణానికి</em> రండి</h2>
     </div>
 
     <div class="contact-grid">
       <div class="contact-info reveal">
-        <h3 data-lang="en">Get In Touch</h3>
-        <h3 data-lang="te">సంప్రదించండి</h3>
+        <h3 class="t-en">Get In Touch</h3>
+        <h3 class="t-te">సంప్రదించండి</h3>
 
         <div class="contact-item">
           <div class="contact-item-icon">
             <img src="https://img.icons8.com/ios/50/2d7d45/marker.png" alt="" />
           </div>
           <div class="contact-item-text">
-            <h4><span data-li="en">Address</span><span data-li="te">చిరునామా</span></h4>
-            <p data-lang="en">Agros Rythu Seva Kendram,<br>Hyderabad, Telangana, India</p>
-            <p data-lang="te">అగ్రోస్ రైతు సేవా కేంద్రం,<br>హైదరాబాద్, తెలంగాణ, భారతదేశం</p>
+            <h4><span class="t-en">Address</span><span class="t-te">చిరునామా</span></h4>
+            <p class="t-en">Agros Rythu Seva Kendram,<br>Hyderabad, Telangana, India</p>
+            <p class="t-te">అగ్రోస్ రైతు సేవా కేంద్రం,<br>హైదరాబాద్, తెలంగాణ, భారతదేశం</p>
           </div>
         </div>
 
@@ -395,8 +395,8 @@
             <img src="https://img.icons8.com/ios/50/2d7d45/phone.png" alt="" />
           </div>
           <div class="contact-item-text">
-            <h4><span data-li="en">Phone</span><span data-li="te">ఫోన్</span></h4>
-            <a href="tel:+91XXXXXXXXXX">+91 XX XXXX XXXX</a>
+            <h4><span class="t-en">Phone</span><span class="t-te">ఫోన్</span></h4>
+            <a href="tel:+919951205010">+91 99512 05010</a>
           </div>
         </div>
 
@@ -406,23 +406,23 @@
           </div>
           <div class="contact-item-text">
             <h4>WhatsApp</h4>
-            <a href="https://wa.me/91XXXXXXXXXX" target="_blank">+91 XX XXXX XXXX</a>
+            <a href="https://wa.me/919951205010" target="_blank">+91 99512 05010</a>
           </div>
         </div>
 
         <div class="timing-box">
-          🕗 <span data-li="en">Open Mon–Sat: 8:00 AM – 7:00 PM</span>
-              <span data-li="te">సోమ–శని: ఉ.8:00 – సా.7:00</span>
+          🕗 <span class="t-en">Open Mon–Sat: 8:00 AM – 7:00 PM</span>
+              <span class="t-te">సోమ–శని: ఉ.8:00 – సా.7:00</span>
         </div>
 
         <div class="contact-btns">
-          <a href="tel:+91XXXXXXXXXX" class="btn-call-full">
+          <a href="tel:+919951205010" class="btn-call-full">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.7 13.1a19.79 19.79 0 01-3.07-8.67A2 2 0 012.62 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.72 6.72l.97-.96a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            <span data-li="en">Call Now</span><span data-li="te">ఇప్పుడు కాల్ చేయండి</span>
+            <span class="t-en">Call Now</span><span class="t-te">ఇప్పుడు కాల్ చేయండి</span>
           </a>
-          <a href="https://wa.me/91XXXXXXXXXX" class="btn-wa-full" target="_blank">
+          <a href="https://wa.me/919951205010" class="btn-wa-full" target="_blank">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" style="filter:brightness(10)" />
-            <span data-li="en">Chat on WhatsApp</span><span data-li="te">వాట్సాప్‌లో చాట్ చేయండి</span>
+            <span class="t-en">Chat on WhatsApp</span><span class="t-te">వాట్సాప్‌లో చాట్ చేయండి</span>
           </a>
         </div>
       </div>
@@ -436,8 +436,8 @@
           </iframe>
         </div>
         <p class="map-caption">
-          <span data-li="en">📍 Find us on Google Maps — click to get directions</span>
-          <span data-li="te">📍 గూగుల్ మ్యాప్స్‌లో మాను కనుగొనండి</span>
+          <span class="t-en">📍 Find us on Google Maps — click to get directions</span>
+          <span class="t-te">📍 గూగుల్ మ్యాప్స్‌లో మాను కనుగొనండి</span>
         </p>
       </div>
     </div>
@@ -453,35 +453,35 @@
       <img src="logo.png" alt="Agros Logo" class="footer-logo" />
       <div class="footer-brand-text">
         <h2>Agros Rythu Seva Kendram</h2>
-        <p data-lang="en">Your trusted partner for premium agri inputs in Hyderabad. Genuine products, expert advice, and the best prices — since 2005.</p>
-        <p data-lang="te">హైదరాబాద్‌లో ప్రీమియం అగ్రి ఇన్‌పుట్‌ల కోసం మీ విశ్వసనీయ భాగస్వామి. 2005 నుండి అసలు ఉత్పత్తులు.</p>
+        <p class="t-en">Your trusted partner for premium agri inputs in Hyderabad. Genuine products, expert advice, and the best prices — since 2005.</p>
+        <p class="t-te">హైదరాబాద్‌లో ప్రీమియం అగ్రి ఇన్‌పుట్‌ల కోసం మీ విశ్వసనీయ భాగస్వామి. 2005 నుండి అసలు ఉత్పత్తులు.</p>
       </div>
     </div>
 
     <div class="footer-col">
-      <h3><span data-li="en">Quick Links</span><span data-li="te">త్వరిత లింకులు</span></h3>
+      <h3><span class="t-en">Quick Links</span><span class="t-te">త్వరిత లింకులు</span></h3>
       <ul>
-        <li><a href="#about"><span data-li="en">About Us</span><span data-li="te">మా గురించి</span></a></li>
-        <li><a href="#products"><span data-li="en">Products</span><span data-li="te">ఉత్పత్తులు</span></a></li>
-        <li><a href="#why"><span data-li="en">Why Choose Us</span><span data-li="te">మాను ఎందుకు ఎంచుకోవాలి</span></a></li>
-        <li><a href="#contact"><span data-li="en">Contact</span><span data-li="te">సంప్రదించండి</span></a></li>
+        <li><a href="#about" onclick="smoothScroll(event,'about')"><span class="t-en">About Us</span><span class="t-te">మా గురించి</span></a></li>
+        <li><a href="#products" onclick="smoothScroll(event,'products')"><span class="t-en">Products</span><span class="t-te">ఉత్పత్తులు</span></a></li>
+        <li><a href="#why" onclick="smoothScroll(event,'why')"><span class="t-en">Why Choose Us</span><span class="t-te">మాను ఎందుకు ఎంచుకోవాలి</span></a></li>
+        <li><a href="#contact" onclick="smoothScroll(event,'contact')"><span class="t-en">Contact</span><span class="t-te">సంప్రదించండి</span></a></li>
       </ul>
     </div>
 
     <div class="footer-col">
-      <h3><span data-li="en">Store Hours</span><span data-li="te">స్టోర్ సమయాలు</span></h3>
+      <h3><span class="t-en">Store Hours</span><span class="t-te">స్టోర్ సమయాలు</span></h3>
       <ul>
-        <li><a href="#"><span data-li="en">Mon – Sat: 8AM – 7PM</span><span data-li="te">సోమ – శని: 8AM – 7PM</span></a></li>
-        <li><a href="#"><span data-li="en">Sunday: Closed</span><span data-li="te">ఆదివారం: మూసివేత</span></a></li>
+        <li><a href="#"><span class="t-en">Mon – Sat: 8AM – 7PM</span><span class="t-te">సోమ – శని: 8AM – 7PM</span></a></li>
+        <li><a href="#"><span class="t-en">Sunday: Closed</span><span class="t-te">ఆదివారం: మూసివేత</span></a></li>
       </ul>
-      <p class="footer-hours" data-lang="en">📍 Hyderabad, Telangana</p>
-      <p class="footer-hours" data-lang="te">📍 హైదరాబాద్, తెలంగాణ</p>
+      <p class="footer-hours t-en">📍 Hyderabad, Telangana</p>
+      <p class="footer-hours t-te">📍 హైదరాబాద్, తెలంగాణ</p>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <p data-lang="en">© 2025 Agros Rythu Seva Kendram. All rights reserved.</p>
-    <p data-lang="te">© 2025 అగ్రోస్ రైతు సేవా కేంద్రం. అన్ని హక్కులు రిజర్వ్ చేయబడ్డాయి.</p>
+    <p class="t-en">© 2025 Agros Rythu Seva Kendram. All rights reserved.</p>
+    <p class="t-te">© 2025 అగ్రోస్ రైతు సేవా కేంద్రం. అన్ని హక్కులు రిజర్వ్ చేయబడ్డాయి.</p>
     <div class="footer-lang-links">
       <a href="#" onclick="setLang('en'); return false;">English</a>
       <a href="#" onclick="setLang('te'); return false;">తెలుగు</a>
