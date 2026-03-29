@@ -164,27 +164,41 @@ const PRODUCTS = [
     thumbRail.appendChild(thumb);
   });
 
-  /* ── FIX: scroll only the thumb rail, never the page ── */
+  /* ── Scroll ONLY the thumb rail, never the page ──
+     Uses scrollLeft (no behavior:'smooth') so the browser never
+     treats it as a page-level scroll event.                      */
   function scrollThumbIntoView(idx) {
-    const thumb = thumbRail.querySelectorAll('.prod-thumb')[idx];
+    const thumbs = thumbRail.querySelectorAll('.prod-thumb');
+    const thumb  = thumbs[idx];
     if (!thumb) return;
-    const railScrollLeft = thumb.offsetLeft - thumbRail.clientWidth / 2 + thumb.offsetWidth / 2;
-    thumbRail.scrollTo({ left: railScrollLeft, behavior: 'smooth' });
+
+    /* Calculate target scrollLeft so the active thumb is centred */
+    const targetLeft = thumb.offsetLeft
+                     - thumbRail.clientWidth / 2
+                     + thumb.offsetWidth  / 2;
+
+    /* Clamp to valid range */
+    const maxScroll = thumbRail.scrollWidth - thumbRail.clientWidth;
+    thumbRail.scrollLeft = Math.max(0, Math.min(targetLeft, maxScroll));
   }
 
   function goTo(idx) {
     const slides = stage.querySelectorAll('.prod-slide');
     const thumbs = thumbRail.querySelectorAll('.prod-thumb');
+
     slides[current].classList.remove('active');
     thumbs[current].classList.remove('active');
+
     current = (idx + PRODUCTS.length) % PRODUCTS.length;
+
     slides[current].classList.add('active');
     thumbs[current].classList.add('active');
     currEl.textContent = String(current + 1).padStart(2, '0');
 
-    /* Only scroll the thumb rail — never the page */
+    /* Scroll only the thumb rail — page position is never touched */
     scrollThumbIntoView(current);
 
+    /* Reset progress bar */
     progress.style.transition = 'none';
     progress.style.width = '0%';
     requestAnimationFrame(() => {
@@ -207,27 +221,55 @@ const PRODUCTS = [
     progress.style.width = '0%';
   }
 
-  prevBtn.addEventListener('click', () => { stopAuto(); goTo(current - 1); startAuto(); });
-  nextBtn.addEventListener('click', () => { stopAuto(); goTo(current + 1); startAuto(); });
+  /* Arrow buttons — prevent default to block any native scroll */
+  prevBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    stopAuto();
+    goTo(current - 1);
+    startAuto();
+  });
+  nextBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    stopAuto();
+    goTo(current + 1);
+    startAuto();
+  });
 
+  /* Pause on hover */
   const showcase = document.querySelector('.prod-showcase');
   if (showcase) {
     showcase.addEventListener('mouseenter', stopAuto);
     showcase.addEventListener('mouseleave', startAuto);
   }
 
+  /* Touch swipe — passive listeners so page scroll isn't blocked */
   let touchStartX = 0;
-  stage.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-  stage.addEventListener('touchend',   e => {
+  stage.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  stage.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(dx) > 50) { stopAuto(); goTo(current + (dx < 0 ? 1 : -1)); startAuto(); }
-  });
+    if (Math.abs(dx) > 50) {
+      stopAuto();
+      goTo(current + (dx < 0 ? 1 : -1));
+      startAuto();
+    }
+  }, { passive: true });
 
+  /* Keyboard arrows — only when the showcase is focused/hovered */
+  let showcaseHovered = false;
+  if (showcase) {
+    showcase.addEventListener('mouseenter', () => { showcaseHovered = true;  });
+    showcase.addEventListener('mouseleave', () => { showcaseHovered = false; });
+  }
   document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft')  { stopAuto(); goTo(current - 1); startAuto(); }
-    if (e.key === 'ArrowRight') { stopAuto(); goTo(current + 1); startAuto(); }
+    if (!showcaseHovered) return;           // ← only act when hovering carousel
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); stopAuto(); goTo(current - 1); startAuto(); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); stopAuto(); goTo(current + 1); startAuto(); }
   });
 
-  startAuto();
+  /* Init */
   goTo(0);
+  startAuto();
 })();
