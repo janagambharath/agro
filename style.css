@@ -516,9 +516,12 @@ section { padding: 96px 5%; }
   display: flex; gap: 8px;
   margin-top: 14px;
   overflow-x: auto;
+  overflow-y: hidden;          /* never let it create vertical scroll */
   padding-bottom: 4px;
   scrollbar-width: thin;
   scrollbar-color: var(--mint) transparent;
+  /* Prevent this container from influencing page scroll */
+  overscroll-behavior-x: contain;
 }
 .prod-thumb-rail::-webkit-scrollbar { height: 4px; }
 .prod-thumb-rail::-webkit-scrollbar-track { background: transparent; }
