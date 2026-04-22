@@ -94,35 +94,69 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ============================================================
-   PRODUCT SHOWCASE — 20 PRODUCTS (IMAGE ONLY)
+   PRODUCT SHOWCASE — 53 PRODUCTS (IMAGE ONLY)
    ============================================================ */
 
 const PRODUCTS = [
   /* ── Fertilizers ── */
-  { img: 'products/vesomax.jpeg',         name: 'VesoMax' },
-  { img: 'products/vesogro.jpeg',         name: 'VesoGro' },
-  { img: 'products/aquaris-npk.jpeg',     name: 'Aquaris NPK 19-19-19' },
-  { img: 'products/nanodap.jpeg',         name: 'Gromor NanoDAP' },
+  { img: 'products/vesomax.jpeg',           name: 'VesoMax' },
+  { img: 'products/vesogro.jpeg',           name: 'VesoGro' },
+  { img: 'products/aquaris-npk.jpeg',       name: 'Aquaris NPK 19-19-19' },
+  { img: 'products/nanodap.jpeg',           name: 'Gromor NanoDAP' },
+  { img: 'products/shine-k.jpeg',           name: 'Shine-K (Potash + Silicon)' },
   /* ── Nutrients / Micronutrients ── */
-  { img: 'products/black-gold.jpeg',      name: 'Black Gold' },
-  { img: 'products/basfoliar-cabmag.jpeg',name: 'Basfoliar CaBMag SL' },
-  { img: 'products/horticab.jpeg',        name: 'HorticaB' },
-  { img: 'products/boro-spray.jpeg',      name: 'Boro Spray' },
-  { img: 'products/aquacal.jpeg',         name: 'Aquacal' },
+  { img: 'products/black-gold.jpeg',        name: 'Black Gold' },
+  { img: 'products/basfoliar-cabmag.jpeg',  name: 'Basfoliar CaBMag SL' },
+  { img: 'products/horticab.jpeg',          name: 'HorticaB' },
+  { img: 'products/boro-spray.jpeg',        name: 'Boro Spray' },
+  { img: 'products/aquacal.jpeg',           name: 'Aquacal' },
   /* ── Bio-Stimulants ── */
-  { img: 'products/prim-horus.jpeg',      name: 'Prim Horus' },
-  { img: 'products/allwin-top-plus.jpeg', name: 'Allwin Top Plus' },
-  { img: 'products/allwin-wonder-plus.jpeg', name: 'Allwin Wonder Plus' },
-  { img: 'products/shine-g.jpeg',         name: 'Shine-G' },
-  { img: 'products/ecomax.jpeg',          name: 'Ecomax+' },
+  { img: 'products/prim-horus.jpeg',        name: 'Prim Horus' },
+  { img: 'products/allwin-top-plus.jpeg',   name: 'Allwin Top Plus' },
+  { img: 'products/allwin-wonder-plus.jpeg',name: 'Allwin Wonder Plus' },
+  { img: 'products/shine-g.jpeg',           name: 'Shine-G' },
+  { img: 'products/ecomax.jpeg',            name: 'Ecomax+' },
+  { img: 'products/karishma.jpeg',          name: 'Karishma (Seaweed Extract)' },
+  { img: 'products/shine-basil10.jpeg',     name: 'Shine Basil 10' },
+  { img: 'products/decade.jpeg',            name: 'Decade' },
   /* ── Fungicides ── */
-  { img: 'products/enigma.jpeg',          name: 'Enigma' },
-  { img: 'products/panzer.jpeg',          name: 'Panzer' },
-  { img: 'products/shark.jpeg',           name: 'Shark' },
+  { img: 'products/enigma.jpeg',            name: 'Enigma' },
+  { img: 'products/panzer.jpeg',            name: 'Panzer' },
+  { img: 'products/shark.jpeg',             name: 'Shark' },
+  { img: 'products/kavach.jpeg',            name: 'Kavach' },
+  { img: 'products/kavachflo.jpeg',         name: 'KavachFlo' },
+  { img: 'products/simodis.jpeg',           name: 'Simodis' },
+  { img: 'products/shield.jpeg',            name: 'Shield (Thiophanate Methyl)' },
+  { img: 'products/mepro-top.jpeg',         name: 'Mepro-Top' },
+  { img: 'products/rodia.jpeg',             name: 'Rodia' },
+  { img: 'products/klaatu.jpeg',            name: 'Klaatu (Thiophanate Methyl)' },
+  { img: 'products/blue-top.jpeg',          name: 'Blue Top (Copper Oxychloride)' },
+  { img: 'products/sartaz.jpeg',            name: 'Sartaz (Carbendazim + Mancozeb)' },
+  { img: 'products/medusa.jpeg',            name: 'Medusa' },
   /* ── Insecticides ── */
-  { img: 'products/mahakal.jpeg',         name: 'Mahakal' },
-  { img: 'products/ayaka.jpeg',           name: 'Ayaka' },
-  { img: 'products/tridev.jpeg',          name: 'Tridev' },
+  { img: 'products/mahakal.jpeg',           name: 'Mahakal' },
+  { img: 'products/ayaka.jpeg',             name: 'Ayaka' },
+  { img: 'products/tridev.jpeg',            name: 'Tridev' },
+  { img: 'products/ampligo.jpeg',           name: 'Ampligo' },
+  { img: 'products/alika.jpeg',             name: 'Alika' },
+  { img: 'products/curacron.jpeg',          name: 'Curacron' },
+  { img: 'products/virtako.jpeg',           name: 'Virtako' },
+  { img: 'products/acitop-gold.jpeg',       name: 'Acitop Gold' },
+  { img: 'products/barood.jpeg',            name: 'Barood' },
+  { img: 'products/vastu.jpeg',             name: 'Vastu (Clothianidin 50% WG)' },
+  { img: 'products/cartop-4g.jpeg',         name: 'Cartop 4G' },
+  { img: 'products/profex-super.jpeg',      name: 'Profex Super' },
+  { img: 'products/no1-validamycin.jpeg',   name: 'No-1 Validamycin' },
+  { img: 'products/archer.jpeg',            name: 'Archer (Acephate 75% SP)' },
+  { img: 'products/jugni.jpeg',             name: 'Jugni (Flubendiamide 20% WG)' },
+  { img: 'products/ethon-cyper.jpeg',       name: 'Ethon Cyper' },
+  { img: 'products/dhooan.jpeg',            name: 'Dhooan (Imidacloprid 17.8% SL)' },
+  { img: 'products/kudrat.jpeg',            name: 'Kudrat' },
+  /* ── Herbicides ── */
+  { img: 'products/pegasus.jpeg',           name: 'Pegasus' },
+  { img: 'products/decent-sc.jpeg',         name: 'Decent SC' },
+  { img: 'products/atratop-plus.jpeg',      name: 'Atratop Plus' },
+  { img: 'products/shera.jpeg',             name: 'Shera (Glyphosate 71% SG)' },
 ];
 
 (function initProductShowcase() {
