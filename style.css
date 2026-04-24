@@ -1008,13 +1008,26 @@ body.lang-te .t-te { display: revert; }
 
   /* ── NAV ── */
   #navbar { padding: 0 4%; }
-  .nav-inner { height: 62px; }
-  .nav-logo img { width: 38px; height: 38px; }
-  /* Bigger brand name on mobile */
+  .nav-inner { height: 68px; }
+  .nav-logo img { width: 40px; height: 40px; }
+
+  /* Bigger brand name + subline on mobile */
   .nav-brand h1 {
-    font-size: 1rem;
+    font-size: 1.18rem;
     line-height: 1.2;
   }
+  .nav-brand p {
+    display: block;
+    font-size: .62rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.65);
+    font-weight: 500;
+  }
+  #navbar.scrolled .nav-brand p {
+    color: var(--light);
+  }
+
   .nav-right { gap: 8px; }
   .lang-btn { padding: 4px 10px; font-size: .66rem; }
   .btn-nav-call { padding: 8px 12px; font-size: 0; gap: 0; }
@@ -1157,5 +1170,9 @@ body.lang-te .t-te { display: revert; }
   .hero-badge { font-size: .54rem; padding: 5px 10px; }
   .stat-num   { font-size: 2rem; }
   .prod-stage { height: 220px; }
-  .nav-brand  { display: none; }
+
+  /* Keep brand visible even at very small screens */
+  .nav-brand  { display: block; }
+  .nav-brand h1 { font-size: .92rem; }
+  .nav-brand p  { display: block; font-size: .56rem; }
 }
